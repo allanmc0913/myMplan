@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+
+<div>
+	<h2>Pick a Subject:</h2>
+	<div class = "content">
+	{% for subject in subjects %}
+		<a href="/term/{{termid}}/school/{{schoolid}}/subject/{{subject['SubjectCode']}}">{{subject['SubjectDescr']}}</a><br>
+	{% endfor %}
+</div>
+
+{% endblock %}

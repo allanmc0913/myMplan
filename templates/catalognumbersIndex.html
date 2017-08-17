@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+
+<div>
+	<h2>Pick a Course:</h2>
+	<div class = "content">
+	{% for catalognumber in catalognumbers %}
+		<a href="/term/{{termid}}/school/{{schoolid}}/subject/{{subject}}/catalognum/{{catalognumber['CatalogNumber']}}">{{course}}{{" "}}{{catalognumber['CatalogNumber']}}{{"-"}}{{catalognumber['CourseDescr']}}
+		</a>
+
+		<br>
+	{% endfor %}
+</div>
+
+{% endblock %}

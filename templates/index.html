@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<h1> Welcome to myMplan Scheduler! </h1>
+
+<div>
+    <h2>Pick a Term:</h2>
+    
+    <h3>
+
+    <div class = "content">
+    {% for term in terms %}
+		<a href="/term/{{term['TermCode']}}">{{term['TermDescr']}}<br><br></a>
+    {% endfor %}
+	</h3>
+
+</div>	
+
+{% endblock %}

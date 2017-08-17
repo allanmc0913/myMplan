@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+
+<h2>Class Specifics: </h2>
+
+<div>
+	<div class = "content">
+{{ 'Course Description: ' }}
+{{ section['CourseDescr'] }} <br>
+{{ 'Instructor: '}}
+{{ instructor [0]['InstructorName'] }} <br>
+{{ 'Role: '}}
+{{  instructor[0]['InstructorRole'] }} <br>
+{{ 'Start Date: '}}
+{{ meeting[0]['StartDate'] }} <br>
+{{ 'End Date: '}}
+{{ meeting[0]['EndDate'] }} <br>
+{{ 'Meeting Times: ' }}
+{{ meeting[0]['Days'] }}
+{{ ',' }}
+{{ meeting[0]['Times'] }} <br>
+{{ 'Location: '}}
+{{ meeting [0]['Location'] }} <br>
+{{ 'Enrollment Status: '}}
+{{ section['EnrollmentStatus'] }} <br>
+{{ 'Credits: ' }}
+{{ section['CreditHours'] }} <br>
+{{ 'Available Seats: ' }}
+{{ section['AvailableSeats'] }} <br>
+{{ 'Waitlist Total: '}}
+{{ section['WaitTotal'] }} <br>
+{{ 'Enrollment Total: '}}
+{{ section['EnrollmentTotal'] }} <br>
+{{ 'Enrollment Capacity: '}}
+{{ section['EnrollmentCapacity'] }} <br> <br>
+
+
+
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAXv2jWDSxgaviOmiM5fqwQn8SE9u8XVto
+    &q={{ locations[course[-1]] }}+ann+arbor+michigan">
+</iframe>
+<br> <br>
+
+<a
+href = "https://rooms.lsa.umich.edu/classrooms/{{ room[-1] }}{{room [-2] }}" target = "_blank">View Classroom
+</a> 
+{{ "(Available for LSA and LSA RC Classrooms only)" }}
+<br> <br>
+
+</div>
+
+
+
+
+{% endblock %}

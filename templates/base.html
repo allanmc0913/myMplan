@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+
+  <head>
+
+      <title>myMplan</title>
+
+     <link rel="stylesheet" type="text/css" href="/static/style.css">
+     <ul style="list-style-type: none;">
+  </head>
+  <body >
+
+    <div id="fixedheader">
+    <img src= "http://umich.edu/skins/um2013/media/images/touch-icon-ipad-retina.png" />
+      <h1 style="display:inline-block"> The University of Michigan | myMplan</h1>
+    </div>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

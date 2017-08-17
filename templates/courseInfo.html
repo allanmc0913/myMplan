@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<FORM><INPUT Type="button" VALUE="Back" onClick="history.go(-1);return true;"></FORM>
+
+<h2> Course Description: </h2>
+<div>
+	<div class = "content">
+{{ courseDescription }} 
+</div>
+
+<br>
+<h2>Pick a Section: </h2>
+
+
+<table border=1 width=100%>
+	<tr>
+		<th>Section</th>
+		<th>Instructor(s)</th>
+		<th>Meeting Times</th>
+		<th>Enrollment Status</th>
+		<th>Credits</th>
+		<th>Available Seats</th>
+		<th>Waitlist Total</th>
+		<th>Enrollment Total</th>
+		<th>Enrollment Capacity</th>
+	</tr>
+	{% for section in sections %}
+	<tr>
+		<td>
+			<a style= "color: black" style= "font-size: 50%" href="/term/{{termid}}/school/{{schoolid}}/subject/{{subject}}/catalognum/{{course}}/section/{{section['SectionNumber']}}">{{section['SectionType']}}{{" "}}{{ section['SectionNumber'] }} </a><br>
+		</td>
+		<td>
+			{%if section['Meeting']%}
+			{{ section['Meeting']['Instructors'] }} <br>
+			{%endif%}
+		</td>
+	
+		<td>
+			{%if section['Meeting']%}
+			{{ section['Meeting']['Days'] }} 
+			{{ ',' }}
+			{{ section['Meeting']['Times'] }} <br>
+			{%endif%}
+		</td>
+		<td>
+			{{ section['EnrollmentStatus'] }} <br>
+		</td>
+		<td>
+			{{ section['CreditHours'] }} <br>
+		</td>
+		<td>
+			{{ section['AvailableSeats'] }} <br>
+		</td>
+		<td>
+			{{ section['WaitTotal'] }} <br>
+		</td>
+		<td>
+			{{ section['EnrollmentTotal'] }} <br>
+		</td>
+		<td>
+			{{ section['EnrollmentCapacity'] }} <br> <br>
+		</td>
+	</tr>
+	{% endfor %}
+
+</table>
+
+
+
+
+{% endblock %}
